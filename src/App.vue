@@ -1,17 +1,24 @@
 <template>
   <div class="app">
+    <Errors/>
     <Messages class="message-list-container" v-on:message-nb="setMessagesNB" />
     <Menu class="menu-container" :unreadMessages="messageNb" />
   </div>
 </template>
 
 <script>
+// import Vue from "vue";
+import Errors from "./components/Errors.vue";
 import Menu from "./components/Menu.vue";
 import Messages from "./components/Messages.vue";
+// import store from './store/store';
+
+// Vue.use(store)
 
 export default {
   name: "App",
   components: {
+    Errors,
     Messages,
     Menu
   },

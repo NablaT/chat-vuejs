@@ -14,9 +14,11 @@
 <script>
 export default {
   name: "Menu",
-  props: {
-    unreadMessages: Number,
-  },
+  computed: {
+    unreadMessages() {
+      return this.$store.getters.numberOfUnreadMessages;
+    }
+  }
 };
 </script>
 

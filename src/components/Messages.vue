@@ -19,7 +19,6 @@
 
 <script>
 import Message from "./Message.vue";
-import { messagesMock } from "../mocks/messages.mock.js";
 
 export default {
   name: "Messages",
@@ -28,17 +27,19 @@ export default {
   },
   data() {
     return {
-      messages: messagesMock,
+      count: this.$store.state.count,
     };
   },
   created() {
-    this.sortMessagesByDate();
     this.emitNbUnreadMessages();
+    this.$store.dispatch('setMessages');
+  },
+  computed: {
+    messages() {
+      return this.$store.getters.sortMessagesByDate;
+    },
   },
   methods: {
-    sortMessagesByDate() {
-      this.messages.sort((a, b) => new Date(a.date) - new Date(b.date));
-    },
     emitNbUnreadMessages() {
       this.$emit(
         "message-nb",
