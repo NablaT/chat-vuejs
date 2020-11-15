@@ -6,10 +6,13 @@ import { messagesModule } from './messages.store.js';
 export default createStore({
     namespace: false,
     modules: {
-        contacts: contactsModule,
-        errors: errorsModule,
-        messages: messagesModule,
-    },
+        contactsModule: contactsModule,
+        errorsModule: errorsModule,
+        messagesModule: messagesModule,
+    }
+})
+
+
     // state() {
     //     return {
     //         count: 1,
@@ -29,4 +32,3 @@ export default createStore({
     //         return state.messages.sort((a, b) => new Date(a.date) - new Date(b.date));
     //     },
     // }
-})

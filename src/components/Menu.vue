@@ -2,11 +2,17 @@
   <div class="menu">
     <i class="fas fa-user-friends"></i>
     <i class="fas fa-phone"></i>
-    <i class="far fa-comments selected"> 
-      <span class="unread" v-if="unreadMessages > 0">&nbsp;{{unreadMessages}}</span> 
-      <span v-else>&nbsp;&nbsp;</span>
-    </i> 
-    <i class="fas fa-user-friends"></i>
+    <router-link to="/messages"
+      ><i class="far fa-comments selected">
+        <span class="unread" v-if="unreadMessages > 0"
+          >&nbsp;{{ unreadMessages }}</span
+        >
+        <span v-else>&nbsp;&nbsp;</span>
+      </i>
+    </router-link>
+    <router-link to="/contacts"
+      ><i class="fas fa-user-friends"></i
+    ></router-link>
     <i class="fas fa-ellipsis-h"></i>
   </div>
 </template>
@@ -17,8 +23,8 @@ export default {
   computed: {
     unreadMessages() {
       return this.$store.getters.numberOfUnreadMessages;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -29,7 +35,8 @@ export default {
   justify-content: space-between;
   font-size: 1.5em;
 }
-.fas, .far {
+.fas,
+.far {
   margin: 0.8em;
   color: #A2A8AE;
 }

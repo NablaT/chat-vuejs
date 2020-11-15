@@ -25,33 +25,25 @@ export default {
   components: {
     Message,
   },
-  data() {
-    return {
-      count: this.$store.state.count,
-    };
-  },
-  created() {
-    this.emitNbUnreadMessages();
-    this.$store.dispatch('setMessages');
-  },
   computed: {
     messages() {
       return this.$store.getters.sortMessagesByDate;
     },
   },
+  created() {
+    this.$store.dispatch('setMessages');
+
+
+    this.$store.dispatch('setCountByNb');
+
+
+  },
   methods: {
-    emitNbUnreadMessages() {
-      this.$emit(
-        "message-nb",
-        this.messages.filter((message) => !message.read).length
-      );
-    },
     messageRead(message) {
       const messageIndex = this.messages.findIndex(
         (mess) => mess.id === message.id
       );
       this.messages[messageIndex].read = true;
-      this.emitNbUnreadMessages();
     },
   },
 };

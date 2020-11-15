@@ -1,5 +1,25 @@
 export const messagesMock = [
     {
+        id: "7",
+        sender: {
+            name: "Almara Bemma",
+            profileImage: "https://images.pexels.com/photos/4665930/pexels-photo-4665930.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=100&w=100" 
+        },
+        content: "On it differed repeated wandered required in. On it differed repeated wandered required in. ",
+        read: true,
+        date: "Sun Nov 15 2020 14:11:27 GMT+0100 (Central European Standard Time)",
+    },
+    {
+        id: "6",
+        sender: {
+            name: "Roya Talo",
+            profileImage: "https://images.pexels.com/photos/3404200/pexels-photo-3404200.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" 
+        },
+        content: "On it differed repeated wandered required in. On it differed repeated wandered required in. ",
+        read: true,
+        date: "Sun Nov 15 2020 14:11:27 GMT+0100 (Central European Standard Time)",
+    },
+    {
         id: "1",
         sender: {
             name: "Nebory Talk",

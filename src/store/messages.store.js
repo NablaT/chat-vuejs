@@ -1,4 +1,5 @@
 import axios from "axios";
+import { messagesUrl } from "../configs/configs";
 
 export const messagesModule = {
     namespace: false,
@@ -20,18 +21,19 @@ export const messagesModule = {
             return state.messages.filter((message) => !message.read).length;
         },
         sortMessagesByDate: (state) => {
-            return state.messages.sort((a, b) => new Date(a.date) - new Date(b.date));
+            return state.messages.sort((a, b) => new Date(b.date) - new Date(a.date));
         },
     },
     actions: {
         async setMessages(context) {
             try {
-                const response = await axios.get('httpss://jsonbox.io/box_929e20c02ac0c6aac0c3');
+                const response = await axios.get(messagesUrl);
                 if (response.data) {
                     context.commit('setMessages', { messages: response.data });
                 }
             }
             catch (error) {
+                console.log('error: ', error);
                 context.commit('pushError', {error: error.toString()})
             }
         }

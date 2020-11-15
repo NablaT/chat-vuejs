@@ -11,7 +11,7 @@ export default {
   name: "Errors",
   computed: {
       errors() {
-        return this.$store.state.errors.errors;
+        return this.$store.state.errorsModule.errors;
       }
   }
 };
